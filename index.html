@@ -50,7 +50,7 @@ html_code = """
 
         /* Container */
         .container {
-            max-width: 1200px;
+            max-width: 1300px;
             margin: 0 auto;
             padding: 0 24px;
         }
@@ -159,8 +159,8 @@ html_code = """
 
         .hero-grid {
             display: grid;
-            grid-template-columns: 1.1fr 0.9fr;
-            gap: 60px;
+            grid-template-columns: 0.9fr 1.1fr;
+            gap: 40px;
             align-items: center;
         }
 
@@ -205,7 +205,7 @@ html_code = """
 
         .hero-title {
             font-family: 'Space Grotesk', sans-serif;
-            font-size: 3.2rem;
+            font-size: 3rem;
             font-weight: 800;
             line-height: 1.15;
             margin-bottom: 16px;
@@ -218,7 +218,7 @@ html_code = """
         }
 
         .hero-subtitle {
-            font-size: 1.25rem;
+            font-size: 1.2rem;
             color: var(--accent-emerald);
             font-weight: 600;
             margin-bottom: 20px;
@@ -228,7 +228,7 @@ html_code = """
         }
 
         .hero-description {
-            font-size: 1.05rem;
+            font-size: 1rem;
             color: var(--text-muted);
             line-height: 1.8;
             margin-bottom: 36px;
@@ -307,20 +307,20 @@ html_code = """
         }
 
         /* ============================= */
-        /* Profile Image - No Frame Style */
+        /* Profile Image - LARGE Size    */
         /* ============================= */
         .hero-image-wrapper {
             position: relative;
             display: flex;
             justify-content: center;
             align-items: center;
-            min-height: 600px;
+            min-height: 750px;
         }
 
         .profile-img-container {
             position: relative;
             width: 100%;
-            max-width: 520px;
+            max-width: 750px;
             display: flex;
             justify-content: center;
             align-items: flex-end;
@@ -332,10 +332,10 @@ html_code = """
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            width: 90%;
-            height: 90%;
-            background: radial-gradient(circle, rgba(16, 185, 129, 0.15) 0%, transparent 70%);
-            filter: blur(60px);
+            width: 85%;
+            height: 85%;
+            background: radial-gradient(circle, rgba(16, 185, 129, 0.2) 0%, transparent 70%);
+            filter: blur(80px);
             z-index: 0;
             pointer-events: none;
         }
@@ -343,62 +343,62 @@ html_code = """
         .profile-img-container img {
             position: relative;
             width: 100%;
-            max-width: 500px;
+            max-width: 720px;
             height: auto;
             object-fit: contain;
             z-index: 1;
-            filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.6));
+            filter: drop-shadow(0 25px 50px rgba(0, 0, 0, 0.7));
             transition: var(--transition);
         }
 
         .profile-img-container:hover img {
             transform: translateY(-8px);
-            filter: drop-shadow(0 30px 50px rgba(16, 185, 129, 0.3));
+            filter: drop-shadow(0 35px 60px rgba(16, 185, 129, 0.35));
         }
 
         .floating-stat-card {
             position: absolute;
-            bottom: 40px;
+            bottom: 60px;
             right: 0;
             background: rgba(18, 22, 31, 0.95);
             backdrop-filter: blur(12px);
             border: 1px solid var(--card-border);
-            padding: 16px 22px;
-            border-radius: 16px;
+            padding: 18px 26px;
+            border-radius: 18px;
             display: flex;
             align-items: center;
-            gap: 14px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+            gap: 16px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.7);
             animation: float 4s ease-in-out infinite;
             z-index: 2;
         }
 
         @keyframes float {
             0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-8px); }
+            50% { transform: translateY(-10px); }
         }
 
         .stat-icon {
-            width: 44px;
-            height: 44px;
-            border-radius: 10px;
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
             background: rgba(16, 185, 129, 0.15);
             display: flex;
             align-items: center;
             justify-content: center;
             color: var(--accent-emerald);
-            font-size: 1.2rem;
+            font-size: 1.35rem;
         }
 
         .stat-info h4 {
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             font-weight: 700;
             color: var(--text-main);
             margin-bottom: 2px;
         }
 
         .stat-info p {
-            font-size: 0.75rem;
+            font-size: 0.78rem;
             color: var(--text-muted);
             text-transform: uppercase;
             letter-spacing: 0.5px;
@@ -932,6 +932,18 @@ html_code = """
         }
 
         /* Mobile Responsive */
+        @media (max-width: 1200px) {
+            .profile-img-container {
+                max-width: 600px;
+            }
+            .profile-img-container img {
+                max-width: 580px;
+            }
+            .hero-image-wrapper {
+                min-height: 650px;
+            }
+        }
+
         @media (max-width: 992px) {
             .hero-grid {
                 grid-template-columns: 1fr;
@@ -952,10 +964,13 @@ html_code = """
                 grid-template-columns: repeat(2, 1fr);
             }
             .hero-image-wrapper {
-                min-height: 500px;
+                min-height: 550px;
+            }
+            .profile-img-container {
+                max-width: 500px;
             }
             .profile-img-container img {
-                max-width: 420px;
+                max-width: 480px;
             }
         }
 
@@ -975,19 +990,27 @@ html_code = """
             .cta-box {
                 padding: 40px 20px;
             }
+            .profile-img-container {
+                max-width: 380px;
+            }
             .profile-img-container img {
-                max-width: 340px;
+                max-width: 360px;
             }
             .hero-image-wrapper {
-                min-height: 420px;
+                min-height: 450px;
             }
             .floating-stat-card {
-                bottom: 20px;
+                bottom: 30px;
                 right: 10px;
-                padding: 12px 16px;
+                padding: 12px 18px;
+            }
+            .stat-icon {
+                width: 40px;
+                height: 40px;
+                font-size: 1.1rem;
             }
             .stat-info h4 {
-                font-size: 0.95rem;
+                font-size: 1rem;
             }
             .stat-info p {
                 font-size: 0.7rem;
@@ -1059,7 +1082,7 @@ html_code = """
             </div>
 
             <!-- ============================= -->
-            <!-- Profile Image - No Frame     -->
+            <!-- Profile Image - LARGE Size   -->
             <!-- ============================= -->
             <div class="hero-image-wrapper">
                 <div class="profile-img-container">
