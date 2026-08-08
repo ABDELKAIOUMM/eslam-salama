@@ -12,26 +12,22 @@
 
 :root{
 --bg:#0a0c10;
+--card:#12161f;
 --accent:#10b981;
 --text:#f3f4f6;
 --muted:#9ca3af;
 }
 
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-}
+*{margin:0;padding:0;box-sizing:border-box;scroll-behavior:smooth;}
 
 body{
 font-family:'Plus Jakarta Sans',sans-serif;
 background:var(--bg);
 color:var(--text);
-overflow-x:hidden;
 }
 
 .container{
-max-width:1400px;
+max-width:1300px;
 margin:auto;
 padding:0 24px;
 }
@@ -46,10 +42,10 @@ right:0;
 height:70px;
 display:flex;
 align-items:center;
-background:rgba(10,12,16,0.92);
-backdrop-filter:blur(12px);
+background:rgba(10,12,16,0.95);
+backdrop-filter:blur(10px);
 z-index:1000;
-border-bottom:1px solid rgba(255,255,255,0.06);
+border-bottom:1px solid rgba(255,255,255,0.05);
 }
 
 .nav-wrapper{
@@ -66,15 +62,12 @@ text-decoration:none;
 color:white;
 display:flex;
 align-items:center;
-gap:10px;
+gap:8px;
 }
 
 .brand-logo span{
-width:8px;
-height:8px;
-background:var(--accent);
+width:8px;height:8px;background:var(--accent);
 border-radius:50%;
-display:inline-block;
 }
 
 .nav-links{
@@ -89,9 +82,7 @@ text-decoration:none;
 font-size:0.95rem;
 }
 
-.nav-links a:hover{
-color:var(--accent);
-}
+.nav-links a:hover{color:var(--accent);}
 
 .header-cta{
 border:1px solid var(--accent);
@@ -106,7 +97,7 @@ font-weight:600;
 
 .hero{
 padding-top:95px;
-padding-bottom:60px;
+padding-bottom:70px;
 }
 
 .hero-grid{
@@ -118,15 +109,12 @@ gap:40px;
 
 .hero-title{
 font-family:'Space Grotesk',sans-serif;
-font-size:2.8rem;
+font-size:2.7rem;
 font-weight:800;
 margin-bottom:15px;
-line-height:1.2;
 }
 
-.hero-title span{
-color:var(--accent);
-}
+.hero-title span{color:var(--accent);}
 
 .hero-subtitle{
 color:var(--accent);
@@ -138,13 +126,13 @@ margin-bottom:18px;
 color:var(--muted);
 line-height:1.7;
 margin-bottom:30px;
-max-width:550px;
+max-width:520px;
 }
 
 .hero-actions{
 display:flex;
 gap:15px;
-margin-bottom:30px;
+margin-bottom:25px;
 flex-wrap:wrap;
 }
 
@@ -157,83 +145,165 @@ font-size:0.95rem;
 display:inline-flex;
 align-items:center;
 gap:8px;
-cursor:pointer;
 border:none;
+cursor:pointer;
 }
 
-.btn-primary{
-background:var(--accent);
-color:#000;
-}
-
+.btn-primary{background:var(--accent);color:#000;}
 .btn-secondary{
-background:#161b22;
+background:var(--card);
 color:white;
 border:1px solid rgba(255,255,255,0.08);
 }
 
 .hero-contact{
 display:flex;
-gap:20px;
+gap:18px;
 flex-wrap:wrap;
-font-size:0.9rem;
 color:var(--muted);
+font-size:0.9rem;
 }
 
-/* ================= IMAGE SECTION ================= */
+/* IMAGE */
 
 .hero-image-wrapper{
 display:flex;
 justify-content:flex-end;
-align-items:center;
-width:100%;
-}
-
-.profile-img-container{
-width:100%;
-display:flex;
-justify-content:flex-end;
-align-items:center;
 }
 
 .profile-img-container img{
 width:100%;
-max-width:650px;   /* ✅ تم تصغيرها قليلاً */
-height:80vh;       /* ✅ ارتفاع متوازن */
+max-width:600px;   /* ✅ حجم متوازن */
+height:75vh;       /* ✅ أصغر قليلاً */
 object-fit:contain;
 object-position:bottom;
-filter:drop-shadow(0 40px 80px rgba(0,0,0,0.75));
+filter:drop-shadow(0 30px 60px rgba(0,0,0,0.8));
 transition:0.4s ease;
 }
 
 .profile-img-container img:hover{
-transform:scale(1.04);
+transform:scale(1.03);
 }
 
-/* ================= RESPONSIVE ================= */
+/* ================= SECTIONS ================= */
 
-@media(max-width:992px){
+section{padding:80px 0;}
 
-.hero-grid{
-grid-template-columns:1fr;
+.section-title{
+font-family:'Space Grotesk',sans-serif;
+font-size:2rem;
+margin-bottom:40px;
 text-align:center;
 }
 
-.hero-description{
+/* ABOUT */
+
+.about{
+background:var(--card);
+}
+
+.about p{
+color:var(--muted);
+max-width:800px;
+margin:auto;
+text-align:center;
+line-height:1.7;
+}
+
+/* SKILLS */
+
+.skills-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+}
+
+.skill-card{
+background:var(--card);
+padding:25px;
+border-radius:12px;
+text-align:center;
+}
+
+.skill-card h4{margin-bottom:10px;}
+.skill-card p{color:var(--muted);font-size:0.9rem;}
+
+/* EXPERIENCE */
+
+.timeline{
+max-width:800px;
 margin:auto;
 }
 
-.hero-actions,
-.hero-contact{
-justify-content:center;
+.timeline-item{
+background:var(--card);
+padding:25px;
+border-radius:12px;
+margin-bottom:20px;
 }
 
-.hero-image-wrapper{
-justify-content:center;
+.timeline-item h4{
+color:var(--accent);
+margin-bottom:5px;
 }
 
+.timeline-item span{
+font-size:0.85rem;
+color:var(--muted);
+}
+
+/* EDUCATION */
+
+.edu-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+}
+
+.edu-card{
+background:var(--card);
+padding:25px;
+border-radius:12px;
+}
+
+/* CONTACT */
+
+.contact{
+background:var(--card);
+text-align:center;
+}
+
+.contact a{
+display:inline-block;
+margin:10px;
+padding:12px 25px;
+border-radius:8px;
+text-decoration:none;
+font-weight:600;
+}
+
+.whatsapp{background:#25D366;color:white;}
+.email{background:#ea4335;color:white;}
+.phone{border:1px solid var(--accent);color:var(--accent);}
+
+/* FOOTER */
+
+footer{
+padding:30px 0;
+text-align:center;
+color:var(--muted);
+border-top:1px solid rgba(255,255,255,0.05);
+}
+
+/* RESPONSIVE */
+
+@media(max-width:992px){
+.hero-grid{grid-template-columns:1fr;text-align:center;}
+.hero-description{margin:auto;}
+.hero-actions,.hero-contact{justify-content:center;}
+.hero-image-wrapper{justify-content:center;margin-top:40px;}
 .profile-img-container img{
-max-width:480px;
+max-width:450px;
 height:65vh;
 }
 }
@@ -242,7 +312,7 @@ height:65vh;
 .nav-links{display:none;}
 .hero-title{font-size:2.2rem;}
 .profile-img-container img{
-max-width:380px;
+max-width:350px;
 height:55vh;
 }
 }
@@ -254,21 +324,20 @@ height:55vh;
 <header>
 <div class="container nav-wrapper">
 <a href="#" class="brand-logo"><span></span> ESLAM SALAMA</a>
-
 <ul class="nav-links">
-<li><a href="#">About</a></li>
-<li><a href="#">Skills</a></li>
-<li><a href="#">Experience</a></li>
-<li><a href="#">Education</a></li>
-<li><a href="#">Contact</a></li>
+<li><a href="#about">About</a></li>
+<li><a href="#skills">Skills</a></li>
+<li><a href="#experience">Experience</a></li>
+<li><a href="#education">Education</a></li>
+<li><a href="#contact">Contact</a></li>
 </ul>
-
 <a href="tel:+201096147884" class="header-cta">
 <i class="fa-solid fa-phone"></i> +20 109 614 7884
 </a>
 </div>
 </header>
 
+<!-- HERO -->
 <section class="hero">
 <div class="container hero-grid">
 
@@ -287,17 +356,9 @@ Dynamic finance professional with 5+ years of expertise across Hospitality, FMCG
 </p>
 
 <div class="hero-actions">
-<a href="#" class="btn btn-primary">
-<i class="fa-solid fa-paper-plane"></i> Get In Touch
-</a>
-
-<a href="#" class="btn btn-secondary">
-<i class="fa-solid fa-briefcase"></i> View Career History
-</a>
-
-<button onclick="window.print()" class="btn btn-secondary">
-<i class="fa-solid fa-file-pdf"></i> Save / Print PDF
-</button>
+<a href="#contact" class="btn btn-primary">Get In Touch</a>
+<a href="#experience" class="btn btn-secondary">View Career History</a>
+<button onclick="window.print()" class="btn btn-secondary">Save / Print PDF</button>
 </div>
 
 <div class="hero-contact">
@@ -316,6 +377,84 @@ Dynamic finance professional with 5+ years of expertise across Hospitality, FMCG
 
 </div>
 </section>
+
+<!-- ABOUT -->
+<section id="about" class="about">
+<div class="container">
+<h2 class="section-title">About Me</h2>
+<p>
+Graduate of Zagazig University (Commerce 2020). Experienced across Jaz Hotel Group, Nestlé Pure Life, and Al-Banna Group. Skilled in financial reporting, inventory auditing, supplier negotiation, and ERP systems.
+</p>
+</div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+<div class="container">
+<h2 class="section-title">Core Skills</h2>
+<div class="skills-grid">
+<div class="skill-card"><h4>Financial Accounting</h4><p>Journal entries, financial statements, reporting.</p></div>
+<div class="skill-card"><h4>ERP Systems</h4><p>Oracle & Integrated Accounting Systems.</p></div>
+<div class="skill-card"><h4>Inventory Control</h4><p>Warehouse audits & stock reconciliation.</p></div>
+<div class="skill-card"><h4>Leadership</h4><p>Team supervision & supplier negotiations.</p></div>
+</div>
+</div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+<div class="container">
+<h2 class="section-title">Experience</h2>
+<div class="timeline">
+<div class="timeline-item">
+<h4>Warehouse Manager – Al-Banna Group</h4>
+<span>2023 – 2026</span>
+<p>Managed central warehouse operations, inventory audits, and supplier negotiations.</p>
+</div>
+<div class="timeline-item">
+<h4>Accountant – Nestlé Pure Life</h4>
+<span>2022 – 2023</span>
+<p>Supported inventory control and production cost analysis.</p>
+</div>
+<div class="timeline-item">
+<h4>Accountant – Jaz Aqua Viva</h4>
+<span>2021 – 2022</span>
+<p>Handled hospitality accounting transactions and financial compliance.</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education">
+<div class="container">
+<h2 class="section-title">Education</h2>
+<div class="edu-grid">
+<div class="edu-card">
+<h4>Bachelor of Commerce</h4>
+<p>Zagazig University (2016 – 2020)</p>
+</div>
+<div class="edu-card">
+<h4>ICDL Certification</h4>
+<p>Benha University (2020 – 2021)</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="contact">
+<div class="container">
+<h2 class="section-title">Contact Me</h2>
+<a href="https://wa.me/201096147884" class="whatsapp">WhatsApp</a>
+<a href="mailto:Eslam.samo102@gmail.com" class="email">Email</a>
+<a href="tel:+201096147884" class="phone">Call</a>
+</div>
+</section>
+
+<footer>
+© 2026 Eslam Salama – All Rights Reserved
+</footer>
 
 </body>
 </html>
