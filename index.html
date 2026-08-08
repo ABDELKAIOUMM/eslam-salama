@@ -159,7 +159,7 @@ html_code = """
 
         .hero-grid {
             display: grid;
-            grid-template-columns: 1.2fr 0.8fr;
+            grid-template-columns: 1.1fr 0.9fr;
             gap: 60px;
             align-items: center;
         }
@@ -306,63 +306,71 @@ html_code = """
             color: var(--text-main);
         }
 
-        /* Profile Card Showcase */
+        /* ============================= */
+        /* Profile Image - No Frame Style */
+        /* ============================= */
         .hero-image-wrapper {
             position: relative;
             display: flex;
             justify-content: center;
+            align-items: center;
+            min-height: 600px;
         }
 
-        .hero-card {
+        .profile-img-container {
             position: relative;
             width: 100%;
-            max-width: 360px;
-            background: var(--bg-secondary);
-            border: 1px solid var(--border-color);
-            border-radius: 24px;
-            padding: 20px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+            max-width: 520px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+        }
+
+        .profile-img-container::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 90%;
+            height: 90%;
+            background: radial-gradient(circle, rgba(16, 185, 129, 0.15) 0%, transparent 70%);
+            filter: blur(60px);
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .profile-img-container img {
+            position: relative;
+            width: 100%;
+            max-width: 500px;
+            height: auto;
+            object-fit: contain;
+            z-index: 1;
+            filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.6));
             transition: var(--transition);
         }
 
-        .hero-card:hover {
-            border-color: var(--card-border);
-            transform: translateY(-6px);
-        }
-
-        .profile-img-box {
-            position: relative;
-            width: 100%;
-            height: 380px;
-            border-radius: 18px;
-            overflow: hidden;
-            background: #1a202c;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .profile-img-box img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: center top;
+        .profile-img-container:hover img {
+            transform: translateY(-8px);
+            filter: drop-shadow(0 30px 50px rgba(16, 185, 129, 0.3));
         }
 
         .floating-stat-card {
             position: absolute;
-            bottom: -20px;
-            right: -20px;
-            background: rgba(18, 22, 31, 0.9);
+            bottom: 40px;
+            right: 0;
+            background: rgba(18, 22, 31, 0.95);
             backdrop-filter: blur(12px);
             border: 1px solid var(--card-border);
-            padding: 14px 20px;
+            padding: 16px 22px;
             border-radius: 16px;
             display: flex;
             align-items: center;
             gap: 14px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
             animation: float 4s ease-in-out infinite;
+            z-index: 2;
         }
 
         @keyframes float {
@@ -943,6 +951,12 @@ html_code = """
             .stats-strip {
                 grid-template-columns: repeat(2, 1fr);
             }
+            .hero-image-wrapper {
+                min-height: 500px;
+            }
+            .profile-img-container img {
+                max-width: 420px;
+            }
         }
 
         @media (max-width: 768px) {
@@ -960,6 +974,23 @@ html_code = """
             }
             .cta-box {
                 padding: 40px 20px;
+            }
+            .profile-img-container img {
+                max-width: 340px;
+            }
+            .hero-image-wrapper {
+                min-height: 420px;
+            }
+            .floating-stat-card {
+                bottom: 20px;
+                right: 10px;
+                padding: 12px 16px;
+            }
+            .stat-info h4 {
+                font-size: 0.95rem;
+            }
+            .stat-info p {
+                font-size: 0.7rem;
             }
         }
     </style>
@@ -1027,12 +1058,12 @@ html_code = """
                 </div>
             </div>
 
+            <!-- ============================= -->
+            <!-- Profile Image - No Frame     -->
+            <!-- ============================= -->
             <div class="hero-image-wrapper">
-                <div class="hero-card">
-                    <div class="profile-img-box">
-                        <!-- Profile Image placeholder or uploaded photo reference -->
-                        <img src=photo.png
-                    </div>
+                <div class="profile-img-container">
+                    <img src="photo.png" alt="Eslam Salama - Senior Accountant">
                     <div class="floating-stat-card">
                         <div class="stat-icon">
                             <i class="fa-solid fa-chart-line"></i>
