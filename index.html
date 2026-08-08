@@ -252,14 +252,39 @@
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            padding: 6px 16px;
+            padding: 5px 12px;
             background: rgba(16, 185, 129, 0.1);
             border: 1px solid rgba(16, 185, 129, 0.3);
             border-radius: 30px;
             color: var(--accent-emerald);
-            font-size: 0.85rem;
-            font-weight: 600;
+            font-size: 0.75rem;
+            font-weight: 700;
+            white-space: nowrap;
+        }
+
+        .hero .badge-status {
             margin-bottom: 15px;
+        }
+
+        header .badge-status {
+            margin-right: 15px;
+        }
+
+        [dir="rtl"] header .badge-status {
+            margin-right: 0;
+            margin-left: 15px;
+        }
+
+        @media (max-width: 768px) {
+            header .badge-status {
+                padding: 4px 8px;
+                font-size: 0.65rem;
+                margin: 0 5px;
+            }
+            header .badge-status .pulse-dot {
+                width: 6px;
+                height: 6px;
+            }
         }
 
         .badge-status .pulse-dot {
@@ -456,41 +481,62 @@
             color: var(--text-main);
         }
 
-        /* Stats Counter Strip */
+        /* Modern Horizontal Stats Strip */
         .stats-strip {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
+            grid-template-columns: repeat(3, 1fr);
             gap: 20px;
-            margin-top: 20px;
+            margin-top: -20px;
             margin-bottom: 80px;
+            padding: 30px 20px;
+            background: rgba(22, 27, 34, 0.2);
+            border-radius: 20px;
+            border: 1px solid var(--border-color);
+            backdrop-filter: blur(5px);
         }
 
         .stat-box {
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            border-radius: 16px;
-            padding: 24px;
             text-align: center;
-            transition: var(--transition);
-        }
-
-        .stat-box:hover {
-            border-color: var(--card-border);
-            transform: translateY(-4px);
+            padding: 10px;
         }
 
         .stat-num {
             font-family: 'Space Grotesk', sans-serif;
-            font-size: 2.1rem;
-            font-weight: 700;
+            font-size: 2.2rem;
+            font-weight: 800;
             color: var(--accent-emerald);
-            margin-bottom: 6px;
+            margin-bottom: 4px;
         }
 
         .stat-label {
-            font-size: 0.85rem;
+            font-size: 0.75rem;
             color: var(--text-muted);
-            font-weight: 500;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        @media (max-width: 768px) {
+            .stats-strip {
+                grid-template-columns: 1fr;
+                gap: 25px;
+                margin-top: 20px;
+                padding: 25px;
+            }
+            
+            .stat-box {
+                border-bottom: 1px solid var(--border-color);
+                padding-bottom: 20px;
+            }
+            
+            .stat-box:last-child {
+                border-bottom: none;
+                padding-bottom: 0;
+            }
+
+            .stat-num {
+                font-size: 2rem;
+            }
         }
 
         /* About & Highlights Section */
@@ -1035,7 +1081,6 @@
         <div class="container nav-wrapper">
             <a href="#" class="brand-logo">
                 <span class="dot"></span>
-                <span data-i18n="brand">ESLAM SALAMA</span>
             </a>
             <ul class="nav-links">
                 <li><a href="#about" data-i18n="nav-about">About</a></li>
@@ -1045,9 +1090,9 @@
                 <li><a href="#contact" data-i18n="nav-contact">Contact</a></li>
             </ul>
             <div style="display: flex; align-items: center; gap: 10px;">
-                <a href="tel:+201096147884" class="header-cta">
-                    <i class="fa-solid fa-phone"></i> +20 109 614 7884
-                </a>
+                <div class="badge-status">
+                    <span class="pulse-dot"></span> <span data-i18n="hero-badge">Available for Senior Opportunities</span>
+                </div>
                 <button class="lang-btn" id="langToggle">English</button>
             </div>
         </div>
@@ -1057,9 +1102,6 @@
     <section class="hero">
         <div class="container hero-grid">
             <div class="hero-content">
-                <div class="badge-status">
-                    <span class="pulse-dot"></span> <span data-i18n="hero-badge">Available for Senior Opportunities</span>
-                </div>
                 <h1 class="hero-title">
                     <span data-i18n="hero-greeting">Hi, I'm</span> <span class="gradient-text" data-i18n="hero-name">Eslam Salama</span><br>
                     <span data-i18n="hero-surname">Alsayd Hussein</span>
@@ -1079,15 +1121,9 @@
                     Dynamic finance professional with 5+ years of verified expertise across Hospitality, FMCG (Nestlé Pure Life), and Agricultural Enterprise (Al-Banna Group). Expert in ERP integration, cost reduction, and warehouse leadership.
                 </p>
                 <div class="hero-actions">
-                    <a href="#contact" class="btn btn-primary">
-                        <i class="fa-solid fa-paper-plane"></i> <span data-i18n="btn-contact">Get In Touch</span>
+                    <a href="cv.pdf" download class="btn btn-primary" style="padding: 14px 32px; font-size: 1rem; border-radius: 50px;">
+                        <i class="fa-solid fa-file-arrow-down"></i> <span data-i18n="btn-download-cv">Download ATS CV</span>
                     </a>
-                    <a href="#experience" class="btn btn-secondary">
-                        <i class="fa-solid fa-briefcase"></i> <span data-i18n="btn-history">Career History</span>
-                    </a>
-                    <button onclick="window.print()" class="btn btn-secondary">
-                        <i class="fa-solid fa-file-pdf"></i> <span data-i18n="btn-save">Save PDF</span>
-                    </button>
                 </div>
                 <div class="hero-contact-strip">
                     <a href="mailto:Eslam.samo102@gmail.com" class="contact-item">
@@ -1118,10 +1154,6 @@
             <div class="stat-box">
                 <div class="stat-num">100%</div>
                 <div class="stat-label" data-i18n="stat-3">ERP Compliance</div>
-            </div>
-            <div class="stat-box">
-                <div class="stat-num" data-i18n="stat-4-num">Fast</div>
-                <div class="stat-label" data-i18n="stat-4">Track Promotion</div>
             </div>
         </div>
     </div>
@@ -1330,7 +1362,7 @@
     <script>
         const translations = {
             ar: {
-                "brand": "إسلام سلامة",
+                "brand-short": "إسلام",
                 "nav-about": "عني",
                 "nav-skills": "المهارات",
                 "nav-experience": "الخبرة",
@@ -1342,15 +1374,11 @@
                 "hero-surname": "السيد حسين",
                 "hero-role": "محاسب أول وأخصائي عمليات المخازن والجرد",
                 "hero-desc": "محترف مالي ديناميكي يتمتع بخبرة تزيد عن 5 سنوات في قطاعات الضيافة، والسلع الاستهلاكية (نستله بيور لايف)، والمشاريع الزراعية (مجموعة البنا). خبير في أنظمة ERP، وتقليل التكاليف، وقيادة العمليات المخزنية.",
-                "btn-contact": "تواصل معي",
-                "btn-history": "المسيرة المهنية",
-                "btn-save": "حفظ بصيغة PDF",
+                "btn-download-cv": "تحميل السيرة الذاتية (ATS CV)",
                 "location": "الشرقية، مصر",
                 "stat-1": "سنوات من الخبرة",
-                "stat-2": "قطاعات رئيسية مدارة",
+                "stat-2": "قطاعات مدارة",
                 "stat-3": "الالتزام بأنظمة ERP",
-                "stat-4-num": "سريع",
-                "stat-4": "ترقية استثنائية",
                 "about-tag": "ملخص تنفيذي",
                 "about-title": "عني وأهم نقاط القوة",
                 "about-h3": "قيادة النزاهة المالية والدقة التشغيلية",
@@ -1398,7 +1426,7 @@
                 "footer-text": "© 2026 إسلام سلامة السيد حسين. جميع الحقوق محفوظة."
             },
             en: {
-                "brand": "ESLAM SALAMA",
+                "brand-short": "ESLAM",
                 "nav-about": "About",
                 "nav-skills": "Skills",
                 "nav-experience": "Experience",
@@ -1410,15 +1438,11 @@
                 "hero-surname": "Alsayd Hussein",
                 "hero-role": "Senior Accountant & Inventory Operations Specialist",
                 "hero-desc": "Dynamic finance professional with 5+ years of verified expertise across Hospitality, FMCG (Nestlé Pure Life), and Agricultural Enterprise (Al-Banna Group). Expert in ERP integration, cost reduction, and warehouse leadership.",
-                "btn-contact": "Get In Touch",
-                "btn-history": "Career History",
-                "btn-save": "Save PDF",
+                "btn-download-cv": "Download ATS CV",
                 "location": "Al-Sharqiya, Egypt",
                 "stat-1": "Years of Experience",
                 "stat-2": "Industries Governed",
                 "stat-3": "ERP Compliance",
-                "stat-4-num": "Fast",
-                "stat-4": "Track Promotion",
                 "about-tag": "Executive Summary",
                 "about-title": "About Me & Core Strengths",
                 "about-h3": "Driving Financial Integrity & Operational Precision",
