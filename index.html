@@ -148,19 +148,20 @@ html_code = """
             box-shadow: 0 0 15px var(--accent-glow);
         }
 
-        /* Hero Section */
+        /* ============================ */
+        /* Hero Section - Compact & Big */
+        /* ============================ */
         .hero {
-            padding: 120px 0 80px;
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
+            padding: 100px 0 40px;
+            min-height: auto;
+            display: block;
             position: relative;
         }
 
         .hero-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 30px;
+            gap: 20px;
             align-items: center;
         }
 
@@ -175,7 +176,7 @@ html_code = """
             color: var(--accent-emerald);
             font-size: 0.85rem;
             font-weight: 600;
-            margin-bottom: 24px;
+            margin-bottom: 20px;
         }
 
         .badge-status .pulse-dot {
@@ -208,7 +209,7 @@ html_code = """
             font-size: 2.8rem;
             font-weight: 800;
             line-height: 1.15;
-            margin-bottom: 16px;
+            margin-bottom: 14px;
         }
 
         .hero-title .gradient-text {
@@ -221,7 +222,7 @@ html_code = """
             font-size: 1.15rem;
             color: var(--accent-emerald);
             font-weight: 600;
-            margin-bottom: 20px;
+            margin-bottom: 18px;
             display: flex;
             align-items: center;
             gap: 10px;
@@ -230,16 +231,16 @@ html_code = """
         .hero-description {
             font-size: 1rem;
             color: var(--text-muted);
-            line-height: 1.8;
-            margin-bottom: 36px;
+            line-height: 1.7;
+            margin-bottom: 28px;
             max-width: 560px;
         }
 
         .hero-actions {
             display: flex;
             flex-wrap: wrap;
-            gap: 16px;
-            margin-bottom: 40px;
+            gap: 14px;
+            margin-bottom: 30px;
         }
 
         .btn {
@@ -284,7 +285,7 @@ html_code = """
             display: flex;
             flex-wrap: wrap;
             gap: 20px;
-            padding-top: 24px;
+            padding-top: 20px;
             border-top: 1px solid var(--border-color);
         }
 
@@ -307,7 +308,7 @@ html_code = """
         }
 
         /* ================================== */
-        /* Profile Image - EXTRA LARGE Style  */
+        /* Profile Image - HUGE Size          */
         /* ================================== */
         .hero-image-wrapper {
             position: relative;
@@ -315,14 +316,12 @@ html_code = """
             justify-content: center;
             align-items: center;
             width: 100%;
-            height: 100%;
-            min-height: 850px;
+            margin-right: -40px;
         }
 
         .profile-img-container {
             position: relative;
             width: 100%;
-            max-width: 900px;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -334,8 +333,8 @@ html_code = """
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            width: 90%;
-            height: 90%;
+            width: 85%;
+            height: 85%;
             background: radial-gradient(circle, rgba(16, 185, 129, 0.25) 0%, transparent 70%);
             filter: blur(100px);
             z-index: 0;
@@ -345,9 +344,10 @@ html_code = """
         .profile-img-container img {
             position: relative;
             width: 100%;
-            max-width: 850px;
+            max-width: none;
             height: auto;
-            min-height: 800px;
+            min-height: 700px;
+            max-height: 90vh;
             object-fit: contain;
             z-index: 1;
             filter: drop-shadow(0 30px 60px rgba(0, 0, 0, 0.8));
@@ -888,23 +888,19 @@ html_code = """
 
         /* Mobile Responsive */
         @media (max-width: 1200px) {
-            .profile-img-container {
-                max-width: 700px;
-            }
             .profile-img-container img {
-                max-width: 680px;
-                min-height: 700px;
-            }
-            .hero-image-wrapper {
-                min-height: 720px;
+                min-height: 600px;
             }
         }
 
         @media (max-width: 992px) {
+            .hero {
+                padding: 100px 0 40px;
+            }
             .hero-grid {
                 grid-template-columns: 1fr;
                 text-align: center;
-                gap: 40px;
+                gap: 30px;
             }
             .hero-actions, .hero-contact-strip {
                 justify-content: center;
@@ -920,14 +916,11 @@ html_code = """
                 grid-template-columns: repeat(2, 1fr);
             }
             .hero-image-wrapper {
-                min-height: 600px;
-            }
-            .profile-img-container {
-                max-width: 550px;
+                margin-right: 0;
             }
             .profile-img-container img {
-                max-width: 530px;
-                min-height: 550px;
+                min-height: 500px;
+                max-height: 600px;
             }
         }
 
@@ -947,15 +940,9 @@ html_code = """
             .cta-box {
                 padding: 40px 20px;
             }
-            .profile-img-container {
-                max-width: 400px;
-            }
             .profile-img-container img {
-                max-width: 380px;
                 min-height: 400px;
-            }
-            .hero-image-wrapper {
-                min-height: 450px;
+                max-height: 500px;
             }
         }
     </style>
@@ -1023,9 +1010,7 @@ html_code = """
                 </div>
             </div>
 
-            <!-- ================================== -->
-            <!-- Profile Image - EXTRA LARGE / No Card -->
-            <!-- ================================== -->
+            <!-- Profile Image - HUGE Size -->
             <div class="hero-image-wrapper">
                 <div class="profile-img-container">
                     <img src="photo.png" alt="Eslam Salama - Senior Accountant">
