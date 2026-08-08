@@ -152,17 +152,34 @@
         /* Hero Section - Compact Fixes */
         /* ============================ */
         .hero {
-            padding: 85px 0 30px; /* Reduced top padding to remove empty space */
+            padding: 100px 0 40px; /* Balanced padding to account for fixed header */
             min-height: auto;
             display: block;
             position: relative;
         }
 
         .hero-grid {
+            display: block; /* Simplified container */
+            position: relative;
+        }
+
+        .hero-content {
             display: grid;
-            grid-template-columns: 1.2fr 0.8fr; /* Adjusted ratio for better balance */
-            gap: 30px;
+            grid-template-columns: 1fr 450px;
+            column-gap: 40px;
             align-items: center;
+        }
+
+        /* Ensure all text elements stay on the left column */
+        .badge-status, .hero-title, .hero-subtitle, .hero-description, .hero-actions, .hero-contact-strip {
+            grid-column: 1;
+        }
+
+        .hero-image-wrapper {
+            grid-column: 2;
+            grid-row: 1 / span 6; /* Span alongside all content */
+            display: flex;
+            justify-content: flex-end;
         }
 
         .badge-status {
@@ -310,14 +327,6 @@
         /* ================================== */
         /* Profile Image - Balanced Size      */
         /* ================================== */
-        .hero-image-wrapper {
-            position: relative;
-            display: flex;
-            justify-content: flex-end;
-            align-items: center;
-            width: 100%;
-        }
-
         .profile-img-container {
             position: relative;
             width: 100%;
@@ -343,10 +352,10 @@
         .profile-img-container img {
             position: relative;
             width: 100%;
-            max-width: 460px; /* Reduced max-width to make the image smaller */
+            max-width: 420px; /* Slightly smaller as requested */
             height: auto;
-            min-height: 450px; /* Reduced min-height */
-            max-height: 75vh;  /* Reduced max-height to fit better vertically */
+            min-height: 380px; 
+            max-height: 65vh;  
             object-fit: contain;
             z-index: 1;
             filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.6));
@@ -897,31 +906,35 @@
             .hero {
                 padding: 100px 0 40px;
             }
-            .hero-grid {
-                grid-template-columns: 1fr;
+            .hero-content {
+                display: flex;
+                flex-direction: column;
                 text-align: center;
-                gap: 40px;
+                align-items: center;
             }
-            .hero-actions, .hero-contact-strip {
+            .hero-grid {
+                text-align: center;
+            }
+            .hero-image-wrapper { 
+                margin: 20px 0;
+                width: 100%;
+                display: flex;
                 justify-content: center;
             }
-            .hero-description {
-                margin-left: auto;
-                margin-right: auto;
-            }
+            .hero-description { margin-left: auto; margin-right: auto; }
+            .hero-actions { justify-content: center; }
+            .hero-contact-strip { justify-content: center; }
+
             .about-grid {
                 grid-template-columns: 1fr;
             }
             .stats-strip {
                 grid-template-columns: repeat(2, 1fr);
             }
-            .hero-image-wrapper {
-                justify-content: center;
-            }
             .profile-img-container img {
-                min-height: 380px;
-                max-height: 500px;
-                max-width: 380px;
+                min-height: 280px;
+                max-height: 350px;
+                max-width: 280px;
             }
         }
 
@@ -985,6 +998,14 @@
                 <div class="hero-subtitle">
                     <i class="fa-solid fa-calculator"></i> Senior Accountant & Inventory Operations Specialist
                 </div>
+
+                <!-- Profile Image - Positioned after name for mobile flow -->
+                <div class="hero-image-wrapper">
+                    <div class="profile-img-container">
+                        <img src="photo.png" alt="Eslam Salama - Senior Accountant">
+                    </div>
+                </div>
+
                 <p class="hero-description">
                     Dynamic finance professional with 5+ years of verified expertise across Hospitality, FMCG (Nestlé Pure Life), and Agricultural Enterprise (Al-Banna Group). Expert in ERP integration, cost reduction, and warehouse leadership.
                 </p>
@@ -1009,13 +1030,6 @@
                     <a href="tel:+201096147884" class="contact-item">
                         <i class="fa-solid fa-phone"></i> 01096147884
                     </a>
-                </div>
-            </div>
-
-            <!-- Profile Image - Reduced Size -->
-            <div class="hero-image-wrapper">
-                <div class="profile-img-container">
-                    <img src="photo.png" alt="Eslam Salama - Senior Accountant">
                 </div>
             </div>
         </div>
