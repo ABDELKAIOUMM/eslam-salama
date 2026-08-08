@@ -8,7 +8,7 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
     
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -37,7 +37,7 @@
         }
 
         body {
-            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-family: 'Cairo', 'Plus Jakarta Sans', sans-serif;
             background-color: var(--bg-primary);
             color: var(--text-main);
             line-height: 1.6;
@@ -46,6 +46,72 @@
                 radial-gradient(at 0% 0%, rgba(16, 185, 129, 0.08) 0px, transparent 50%),
                 radial-gradient(at 100% 100%, rgba(6, 182, 212, 0.06) 0px, transparent 50%);
             background-attachment: fixed;
+        }
+
+        [dir="rtl"] body {
+            text-align: right;
+        }
+
+        [dir="rtl"] .hero-image-wrapper {
+            justify-content: flex-start;
+        }
+
+        [dir="rtl"] .timeline::before {
+            left: auto;
+            right: 24px;
+        }
+
+        [dir="rtl"] .timeline-item {
+            padding-left: 0;
+            padding-right: 65px;
+        }
+
+        [dir="rtl"] .timeline-dot {
+            left: auto;
+            right: 17px;
+        }
+
+        [dir="rtl"] .timeline-content:hover {
+            transform: translateX(-6px);
+        }
+
+        [dir="rtl"] .timeline-responsibilities li {
+            padding-left: 0;
+            padding-right: 20px;
+        }
+
+        [dir="rtl"] .timeline-responsibilities li::before {
+            left: auto;
+            right: 0;
+        }
+
+        [dir="rtl"] .edu-icon-bg {
+            right: auto;
+            left: 20px;
+        }
+
+        .lang-btn {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border-color);
+            color: var(--text-main);
+            padding: 6px 12px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-family: inherit;
+            font-size: 0.85rem;
+            font-weight: 600;
+            transition: var(--transition);
+            margin-left: 10px;
+        }
+
+        [dir="rtl"] .lang-btn {
+            margin-left: 0;
+            margin-right: 10px;
+        }
+
+        .lang-btn:hover {
+            border-color: var(--accent-emerald);
+            color: var(--accent-emerald);
         }
 
         /* Container */
@@ -969,18 +1035,21 @@
         <div class="container nav-wrapper">
             <a href="#" class="brand-logo">
                 <span class="dot"></span>
-                ESLAM SALAMA
+                <span data-i18n="brand">ESLAM SALAMA</span>
             </a>
             <ul class="nav-links">
-                <li><a href="#about">About</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#experience">Experience</a></li>
-                <li><a href="#education">Education</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="#about" data-i18n="nav-about">About</a></li>
+                <li><a href="#skills" data-i18n="nav-skills">Skills</a></li>
+                <li><a href="#experience" data-i18n="nav-experience">Experience</a></li>
+                <li><a href="#education" data-i18n="nav-education">Education</a></li>
+                <li><a href="#contact" data-i18n="nav-contact">Contact</a></li>
             </ul>
-            <a href="tel:+201096147884" class="header-cta">
-                <i class="fa-solid fa-phone"></i> +20 109 614 7884
-            </a>
+            <div style="display: flex; align-items: center; gap: 10px;">
+                <a href="tel:+201096147884" class="header-cta">
+                    <i class="fa-solid fa-phone"></i> +20 109 614 7884
+                </a>
+                <button class="lang-btn" id="langToggle">English</button>
+            </div>
         </div>
     </header>
 
@@ -989,14 +1058,14 @@
         <div class="container hero-grid">
             <div class="hero-content">
                 <div class="badge-status">
-                    <span class="pulse-dot"></span> Available for Senior Opportunities
+                    <span class="pulse-dot"></span> <span data-i18n="hero-badge">Available for Senior Opportunities</span>
                 </div>
                 <h1 class="hero-title">
-                    Hi, I'm <span class="gradient-text">Eslam Salama</span><br>
-                    Alsayd Hussein
+                    <span data-i18n="hero-greeting">Hi, I'm</span> <span class="gradient-text" data-i18n="hero-name">Eslam Salama</span><br>
+                    <span data-i18n="hero-surname">Alsayd Hussein</span>
                 </h1>
                 <div class="hero-subtitle">
-                    <i class="fa-solid fa-calculator"></i> Senior Accountant & Inventory Operations Specialist
+                    <i class="fa-solid fa-calculator"></i> <span data-i18n="hero-role">Senior Accountant & Inventory Operations Specialist</span>
                 </div>
 
                 <!-- Profile Image - Positioned after name for mobile flow -->
@@ -1006,18 +1075,18 @@
                     </div>
                 </div>
 
-                <p class="hero-description">
+                <p class="hero-description" data-i18n="hero-desc">
                     Dynamic finance professional with 5+ years of verified expertise across Hospitality, FMCG (Nestlé Pure Life), and Agricultural Enterprise (Al-Banna Group). Expert in ERP integration, cost reduction, and warehouse leadership.
                 </p>
                 <div class="hero-actions">
                     <a href="#contact" class="btn btn-primary">
-                        <i class="fa-solid fa-paper-plane"></i> Get In Touch
+                        <i class="fa-solid fa-paper-plane"></i> <span data-i18n="btn-contact">Get In Touch</span>
                     </a>
                     <a href="#experience" class="btn btn-secondary">
-                        <i class="fa-solid fa-briefcase"></i> Career History
+                        <i class="fa-solid fa-briefcase"></i> <span data-i18n="btn-history">Career History</span>
                     </a>
                     <button onclick="window.print()" class="btn btn-secondary">
-                        <i class="fa-solid fa-file-pdf"></i> Save PDF
+                        <i class="fa-solid fa-file-pdf"></i> <span data-i18n="btn-save">Save PDF</span>
                     </button>
                 </div>
                 <div class="hero-contact-strip">
@@ -1025,7 +1094,7 @@
                         <i class="fa-solid fa-envelope"></i> Eslam.samo102@gmail.com
                     </a>
                     <span class="contact-item">
-                        <i class="fa-solid fa-location-dot"></i> Al-Sharqiya, Egypt
+                        <i class="fa-solid fa-location-dot"></i> <span data-i18n="location">Al-Sharqiya, Egypt</span>
                     </span>
                     <a href="tel:+201096147884" class="contact-item">
                         <i class="fa-solid fa-phone"></i> 01096147884
@@ -1040,19 +1109,19 @@
         <div class="stats-strip">
             <div class="stat-box">
                 <div class="stat-num">5+</div>
-                <div class="stat-label">Years of Experience</div>
+                <div class="stat-label" data-i18n="stat-1">Years of Experience</div>
             </div>
             <div class="stat-box">
                 <div class="stat-num">3+</div>
-                <div class="stat-label">Industries Governed</div>
+                <div class="stat-label" data-i18n="stat-2">Industries Governed</div>
             </div>
             <div class="stat-box">
                 <div class="stat-num">100%</div>
-                <div class="stat-label">ERP Compliance</div>
+                <div class="stat-label" data-i18n="stat-3">ERP Compliance</div>
             </div>
             <div class="stat-box">
-                <div class="stat-num">Fast</div>
-                <div class="stat-label">Track Promotion</div>
+                <div class="stat-num" data-i18n="stat-4-num">Fast</div>
+                <div class="stat-label" data-i18n="stat-4">Track Promotion</div>
             </div>
         </div>
     </div>
@@ -1061,39 +1130,39 @@
     <section id="about" class="about-section">
         <div class="container">
             <div class="section-header">
-                <span class="section-tag">Executive Summary</span>
-                <h2 class="section-title">About Me & Core Strengths</h2>
+                <span class="section-tag" data-i18n="about-tag">Executive Summary</span>
+                <h2 class="section-title" data-i18n="about-title">About Me & Core Strengths</h2>
             </div>
             <div class="about-grid">
                 <div class="about-text">
-                    <h3>Driving Financial Integrity & Operational Precision</h3>
-                    <p>
+                    <h3 data-i18n="about-h3">Driving Financial Integrity & Operational Precision</h3>
+                    <p data-i18n="about-p1">
                         Graduated from Zagazig University (Faculty of Commerce, 2020), I bridge rigorous accounting theory with practical enterprise execution. Over my career across prominent brands like <strong>Jaz Hotel Group</strong>, <strong>Nestlé Pure Life</strong>, and <strong>Al-Banna Group</strong>, I have demonstrated a strong ability to optimize financial closing and audit inventory.
                     </p>
-                    <p>
+                    <p data-i18n="about-p2">
                         Rapidly elevated from Senior Accountant to Warehouse Manager at Al-Banna Group through exceptional vendor negotiations and stringent inventory reconciliation.
                     </p>
                 </div>
                 <div class="highlights-grid">
                     <div class="highlight-card">
                         <div class="highlight-icon"><i class="fa-solid fa-scale-balanced"></i></div>
-                        <h4>General Accounting</h4>
-                        <p>End-to-end journal entries, financial statements, and audit preparation.</p>
+                        <h4 data-i18n="high-1-t">General Accounting</h4>
+                        <p data-i18n="high-1-d">End-to-end journal entries, financial statements, and audit preparation.</p>
                     </div>
                     <div class="highlight-card">
                         <div class="highlight-icon"><i class="fa-solid fa-boxes-stacked"></i></div>
-                        <h4>Inventory & Supply</h4>
-                        <p>Physical inventory counts, stock reconciliation, and zero-loss control.</p>
+                        <h4 data-i18n="high-2-t">Inventory & Supply</h4>
+                        <p data-i18n="high-2-d">Physical inventory counts, stock reconciliation, and zero-loss control.</p>
                     </div>
                     <div class="highlight-card">
                         <div class="highlight-icon"><i class="fa-solid fa-handshake"></i></div>
-                        <h4>Supplier Procurement</h4>
-                        <p>Strategic supplier negotiations securing optimal price and quality.</p>
+                        <h4 data-i18n="high-3-t">Supplier Procurement</h4>
+                        <p data-i18n="high-3-d">Strategic supplier negotiations securing optimal price and quality.</p>
                     </div>
                     <div class="highlight-card">
                         <div class="highlight-icon"><i class="fa-solid fa-laptop-code"></i></div>
-                        <h4>ERP & Digital Systems</h4>
-                        <p>Deep expertise in Oracle and advanced Excel financial modeling.</p>
+                        <h4 data-i18n="high-4-t">ERP & Digital Systems</h4>
+                        <p data-i18n="high-4-d">Deep expertise in Oracle and advanced Excel financial modeling.</p>
                     </div>
                 </div>
             </div>
@@ -1104,26 +1173,26 @@
     <section id="skills" class="skills-section">
         <div class="container">
             <div class="section-header">
-                <span class="section-tag">Technical Competencies</span>
-                <h2 class="section-title">Core Skills & Systems</h2>
+                <span class="section-tag" data-i18n="skills-tag">Technical Competencies</span>
+                <h2 class="section-title" data-i18n="skills-title">Core Skills & Systems</h2>
             </div>
             <div class="skills-grid">
                 
                 <div class="skill-category-card">
                     <div class="category-header">
                         <i class="fa-solid fa-receipt"></i>
-                        <h3>Financial Accounting</h3>
+                        <h3 data-i18n="skill-c1">Financial Accounting</h3>
                     </div>
                     <div class="skill-item">
-                        <div class="skill-info"><span>General Accounting</span><span>98%</span></div>
+                        <div class="skill-info"><span data-i18n="s-1">General Accounting</span><span>98%</span></div>
                         <div class="skill-bar"><div class="skill-fill" style="width: 98%;"></div></div>
                     </div>
                     <div class="skill-item">
-                        <div class="skill-info"><span>Financial Statements</span><span>95%</span></div>
+                        <div class="skill-info"><span data-i18n="s-2">Financial Statements</span><span>95%</span></div>
                         <div class="skill-bar"><div class="skill-fill" style="width: 95%;"></div></div>
                     </div>
                     <div class="skill-item">
-                        <div class="skill-info"><span>Ledger Reconciliation</span><span>96%</span></div>
+                        <div class="skill-info"><span data-i18n="s-3">Ledger Reconciliation</span><span>96%</span></div>
                         <div class="skill-bar"><div class="skill-fill" style="width: 96%;"></div></div>
                     </div>
                 </div>
@@ -1131,18 +1200,18 @@
                 <div class="skill-category-card">
                     <div class="category-header">
                         <i class="fa-solid fa-server"></i>
-                        <h3>ERP & Software Stack</h3>
+                        <h3 data-i18n="skill-c2">ERP & Software Stack</h3>
                     </div>
                     <div class="skill-item">
-                        <div class="skill-info"><span>Advanced Excel</span><span>98%</span></div>
+                        <div class="skill-info"><span data-i18n="s-4">Advanced Excel</span><span>98%</span></div>
                         <div class="skill-bar"><div class="skill-fill" style="width: 98%;"></div></div>
                     </div>
                     <div class="skill-item">
-                        <div class="skill-info"><span>Oracle Financials</span><span>92%</span></div>
+                        <div class="skill-info"><span data-i18n="s-5">Oracle Financials</span><span>92%</span></div>
                         <div class="skill-bar"><div class="skill-fill" style="width: 92%;"></div></div>
                     </div>
                     <div class="skill-item">
-                        <div class="skill-info"><span>Integrated ERP Systems</span><span>94%</span></div>
+                        <div class="skill-info"><span data-i18n="s-6">Integrated ERP Systems</span><span>94%</span></div>
                         <div class="skill-bar"><div class="skill-fill" style="width: 94%;"></div></div>
                     </div>
                 </div>
@@ -1150,18 +1219,18 @@
                 <div class="skill-category-card">
                     <div class="category-header">
                         <i class="fa-solid fa-warehouse"></i>
-                        <h3>Operations & Leadership</h3>
+                        <h3 data-i18n="skill-c3">Operations & Leadership</h3>
                     </div>
                     <div class="skill-item">
-                        <div class="skill-info"><span>Inventory Control</span><span>97%</span></div>
+                        <div class="skill-info"><span data-i18n="s-7">Inventory Control</span><span>97%</span></div>
                         <div class="skill-bar"><div class="skill-fill" style="width: 97%;"></div></div>
                     </div>
                     <div class="skill-item">
-                        <div class="skill-info"><span>Supplier Negotiation</span><span>90%</span></div>
+                        <div class="skill-info"><span data-i18n="s-8">Supplier Negotiation</span><span>90%</span></div>
                         <div class="skill-bar"><div class="skill-fill" style="width: 90%;"></div></div>
                     </div>
                     <div class="skill-item">
-                        <div class="skill-info"><span>Team Supervision</span><span>93%</span></div>
+                        <div class="skill-info"><span data-i18n="s-9">Team Supervision</span><span>93%</span></div>
                         <div class="skill-bar"><div class="skill-fill" style="width: 93%;"></div></div>
                     </div>
                 </div>
@@ -1174,8 +1243,8 @@
     <section id="experience" class="experience-section">
         <div class="container">
             <div class="section-header">
-                <span class="section-tag">Career History</span>
-                <h2 class="section-title">Professional Experience</h2>
+                <span class="section-tag" data-i18n="exp-tag">Career History</span>
+                <h2 class="section-title" data-i18n="exp-title">Professional Experience</h2>
             </div>
             
             <div class="timeline">
@@ -1184,18 +1253,18 @@
                     <div class="timeline-content">
                         <div class="timeline-header">
                             <div>
-                                <h3 class="timeline-role">Warehouse Manager & Senior Accountant</h3>
-                                <span class="timeline-company">Al-Banna Group (Green Egypt)</span>
+                                <h3 class="timeline-role" data-i18n="role-1">Warehouse Manager & Senior Accountant</h3>
+                                <span class="timeline-company" data-i18n="comp-1">Al-Banna Group (Green Egypt)</span>
                             </div>
                             <span class="timeline-period">2023 - 2026</span>
                         </div>
                         <div class="promotion-badge">
-                            <i class="fa-solid fa-award"></i> Promoted to Warehouse Manager (Year 2)
+                            <i class="fa-solid fa-award"></i> <span data-i18n="promo-1">Promoted to Warehouse Manager (Year 2)</span>
                         </div>
                         <ul class="timeline-responsibilities">
-                            <li>Orchestrated full management of central warehouse and financial workflows.</li>
-                            <li>Executed monthly inventory audits with zero margin of error.</li>
-                            <li>Negotiated with suppliers for competitive pricing and optimal terms.</li>
+                            <li data-i18n="res-1-1">Orchestrated full management of central warehouse and financial workflows.</li>
+                            <li data-i18n="res-1-2">Executed monthly inventory audits with zero margin of error.</li>
+                            <li data-i18n="res-1-3">Negotiated with suppliers for competitive pricing and optimal terms.</li>
                         </ul>
                     </div>
                 </div>
@@ -1205,15 +1274,15 @@
                     <div class="timeline-content">
                         <div class="timeline-header">
                             <div>
-                                <h3 class="timeline-role">Accountant</h3>
-                                <span class="timeline-company">Nestlé Pure Life</span>
+                                <h3 class="timeline-role" data-i18n="role-2">Accountant</h3>
+                                <span class="timeline-company" data-i18n="comp-2">Nestlé Pure Life</span>
                             </div>
                             <span class="timeline-period">2022 - 2023</span>
                         </div>
                         <ul class="timeline-responsibilities">
-                            <li>Assisted in high-volume inventory control and stock reconciliation.</li>
-                            <li>Supported fiscal closing operations and daily journal postings.</li>
-                            <li>Conducted production cost analysis to drive saving initiatives.</li>
+                            <li data-i18n="res-2-1">Assisted in high-volume inventory control and stock reconciliation.</li>
+                            <li data-i18n="res-2-2">Supported fiscal closing operations and daily journal postings.</li>
+                            <li data-i18n="res-2-3">Conducted production cost analysis to drive saving initiatives.</li>
                         </ul>
                     </div>
                 </div>
@@ -1225,16 +1294,16 @@
     <section id="contact" class="contact-cta-section">
         <div class="container">
             <div class="cta-box">
-                <h2 class="cta-title">Ready to Elevate Your Financial Operations?</h2>
-                <p class="cta-desc">
+                <h2 class="cta-title" data-i18n="cta-title">Ready to Elevate Your Financial Operations?</h2>
+                <p class="cta-desc" data-i18n="cta-desc">
                     I am available to bring immediate value to your organization through financial accounting and ERP leadership.
                 </p>
                 <div class="cta-grid">
                     <a href="https://wa.me/201096147884" target="_blank" class="cta-btn cta-whatsapp">
-                        <i class="fa-brands fa-whatsapp"></i> WhatsApp
+                        <i class="fa-brands fa-whatsapp"></i> <span data-i18n="cta-wa">WhatsApp</span>
                     </a>
                     <a href="mailto:Eslam.samo102@gmail.com" class="cta-btn cta-email">
-                        <i class="fa-solid fa-envelope"></i> Email
+                        <i class="fa-solid fa-envelope"></i> <span data-i18n="cta-mail">Email</span>
                     </a>
                     <a href="tel:+201096147884" class="cta-btn cta-phone">
                         <i class="fa-solid fa-phone"></i> +20 109 614 7884
@@ -1247,7 +1316,7 @@
     <!-- Footer -->
     <footer>
         <div class="container footer-content">
-            <div class="footer-text">
+            <div class="footer-text" data-i18n="footer-text">
                 © 2026 Eslam Salama Alsayd Hussein. All rights reserved.
             </div>
             <div class="footer-socials">
@@ -1259,6 +1328,170 @@
     </footer>
 
     <script>
+        const translations = {
+            ar: {
+                "brand": "إسلام سلامة",
+                "nav-about": "عني",
+                "nav-skills": "المهارات",
+                "nav-experience": "الخبرة",
+                "nav-education": "التعليم",
+                "nav-contact": "اتصل بنا",
+                "hero-badge": "متاح لفرص العمل والتعاون الجديد",
+                "hero-greeting": "أهلاً، أنا",
+                "hero-name": "إسلام سلامة",
+                "hero-surname": "السيد حسين",
+                "hero-role": "محاسب أول وأخصائي عمليات المخازن والجرد",
+                "hero-desc": "محترف مالي ديناميكي يتمتع بخبرة تزيد عن 5 سنوات في قطاعات الضيافة، والسلع الاستهلاكية (نستله بيور لايف)، والمشاريع الزراعية (مجموعة البنا). خبير في أنظمة ERP، وتقليل التكاليف، وقيادة العمليات المخزنية.",
+                "btn-contact": "تواصل معي",
+                "btn-history": "المسيرة المهنية",
+                "btn-save": "حفظ بصيغة PDF",
+                "location": "الشرقية، مصر",
+                "stat-1": "سنوات من الخبرة",
+                "stat-2": "قطاعات رئيسية مدارة",
+                "stat-3": "الالتزام بأنظمة ERP",
+                "stat-4-num": "سريع",
+                "stat-4": "ترقية استثنائية",
+                "about-tag": "ملخص تنفيذي",
+                "about-title": "عني وأهم نقاط القوة",
+                "about-h3": "قيادة النزاهة المالية والدقة التشغيلية",
+                "about-p1": "خريج جامعة الزقازيق (كلية التجارة، 2020)، أجمع بين النظرية المحاسبية الدقيقة والتنفيذ العملي في الشركات. خلال مسيرتي المهنية في علامات تجارية بارزة مثل مجموعة فنادق Jaz، ونستله Pure Life، ومجموعة البنا، أثبت قدرة قوية على تحسين الإغلاق المالي وجرد المخازن.",
+                "about-p2": "تمت ترقيتي سريعاً من محاسب أول إلى مدير مخازن في مجموعة البنا بفضل المفاوضات الاستثنائية مع الموردين والتسويات المخزنية الدقيقة.",
+                "high-1-t": "المحاسبة العامة",
+                "high-1-d": "إدخالات القيود، القوائم المالية، والاستعداد للمراجعة.",
+                "high-2-t": "المخازن والإمداد",
+                "high-2-d": "الجرد الفعلي، تسوية الأرصدة، والرقابة على الهالك.",
+                "high-3-t": "مشتريات الموردين",
+                "high-3-d": "مفاوضات استراتيجية لضمان أفضل الأسعار والجودة.",
+                "high-4-t": "أنظمة ERP",
+                "high-4-d": "خبرة عميقة في أوراكل ونمذجة البيانات عبر إكسيل.",
+                "skills-tag": "الكفاءات التقنية",
+                "skills-title": "المهارات الأساسية والأنظمة",
+                "skill-c1": "المحاسبة المالية",
+                "skill-c2": "أنظمة ERP والبرمجيات",
+                "skill-c3": "العمليات والقيادة",
+                "s-1": "المحاسبة العامة والقيود",
+                "s-2": "القوائم المالية والتقارير",
+                "s-3": "تسوية حسابات الموردين والعملاء",
+                "s-4": "إكسيل متقدم",
+                "s-5": "نظام أوراكل المالي",
+                "s-6": "أنظمة ERP المتكاملة",
+                "s-7": "الرقابة على المخزون",
+                "s-8": "التفاوض مع الموردين",
+                "s-9": "الإشراف على الفرق",
+                "exp-tag": "المسيرة المهنية",
+                "exp-title": "الخبرة العملية",
+                "role-1": "مدير مخازن ومحاسب أول",
+                "comp-1": "مجموعة شركات البنا (جرين إيجيبت)",
+                "promo-1": "ترقية لمدير مخازن في السنة الثانية",
+                "res-1-1": "إدارة التدفقات اللوجستية والمالية للمخزن الرئيسي.",
+                "res-1-2": "تنفيذ عمليات الجرد الشهري بنسبة خطأ صفر.",
+                "res-1-3": "التفاوض مع الموردين لتأمين أفضل الأسعار والشروط.",
+                "role-2": "محاسب",
+                "comp-2": "نستله بيور لايف",
+                "res-2-1": "المساهمة في الرقابة على المخزون ذو الحجم الكبير.",
+                "res-2-2": "دعم الإغلاق المالي وترحيل القيود اليومية.",
+                "res-2-3": "تحليل تكاليف الإنتاج لدعم مبادرات التوفير.",
+                "cta-title": "هل أنت مستعد لرفع كفاءة عملياتك المالية؟",
+                "cta-desc": "أنا متاح لتقديم قيمة فورية لمؤسستك من خلال المحاسبة المالية وقيادة أنظمة ERP.",
+                "cta-wa": "واتساب",
+                "cta-mail": "بريد إلكتروني",
+                "footer-text": "© 2026 إسلام سلامة السيد حسين. جميع الحقوق محفوظة."
+            },
+            en: {
+                "brand": "ESLAM SALAMA",
+                "nav-about": "About",
+                "nav-skills": "Skills",
+                "nav-experience": "Experience",
+                "nav-education": "Education",
+                "nav-contact": "Contact",
+                "hero-badge": "Available for Senior Opportunities",
+                "hero-greeting": "Hi, I'm",
+                "hero-name": "Eslam Salama",
+                "hero-surname": "Alsayd Hussein",
+                "hero-role": "Senior Accountant & Inventory Operations Specialist",
+                "hero-desc": "Dynamic finance professional with 5+ years of verified expertise across Hospitality, FMCG (Nestlé Pure Life), and Agricultural Enterprise (Al-Banna Group). Expert in ERP integration, cost reduction, and warehouse leadership.",
+                "btn-contact": "Get In Touch",
+                "btn-history": "Career History",
+                "btn-save": "Save PDF",
+                "location": "Al-Sharqiya, Egypt",
+                "stat-1": "Years of Experience",
+                "stat-2": "Industries Governed",
+                "stat-3": "ERP Compliance",
+                "stat-4-num": "Fast",
+                "stat-4": "Track Promotion",
+                "about-tag": "Executive Summary",
+                "about-title": "About Me & Core Strengths",
+                "about-h3": "Driving Financial Integrity & Operational Precision",
+                "about-p1": "Graduated from Zagazig University (Faculty of Commerce, 2020), I bridge rigorous accounting theory with practical enterprise execution. Over my career across prominent brands like Jaz Hotel Group, Nestlé Pure Life, and Al-Banna Group, I have demonstrated a strong ability to optimize financial closing and audit inventory.",
+                "about-p2": "Rapidly elevated from Senior Accountant to Warehouse Manager at Al-Banna Group through exceptional vendor negotiations and stringent inventory reconciliation.",
+                "high-1-t": "General Accounting",
+                "high-1-d": "End-to-end journal entries, financial statements, and audit preparation.",
+                "high-2-t": "Inventory & Supply",
+                "high-2-d": "Physical inventory counts, stock reconciliation, and zero-loss control.",
+                "high-3-t": "Supplier Procurement",
+                "high-3-d": "Strategic supplier negotiations securing optimal price and quality.",
+                "high-4-t": "ERP & Digital Systems",
+                "high-4-d": "Deep expertise in Oracle and advanced Excel financial modeling.",
+                "skills-tag": "Technical Competencies",
+                "skills-title": "Core Skills & Systems",
+                "skill-c1": "Financial Accounting",
+                "skill-c2": "ERP & Software Stack",
+                "skill-c3": "Operations & Leadership",
+                "s-1": "General Accounting",
+                "s-2": "Financial Statements",
+                "s-3": "Ledger Reconciliation",
+                "s-4": "Advanced Excel",
+                "s-5": "Oracle Financials",
+                "s-6": "Integrated ERP Systems",
+                "s-7": "Inventory Control",
+                "s-8": "Supplier Negotiation",
+                "s-9": "Team Supervision",
+                "exp-tag": "Career History",
+                "exp-title": "Professional Experience",
+                "role-1": "Warehouse Manager & Senior Accountant",
+                "comp-1": "Al-Banna Group (Green Egypt)",
+                "promo-1": "Promoted to Warehouse Manager (Year 2)",
+                "res-1-1": "Orchestrated full management of central warehouse and financial workflows.",
+                "res-1-2": "Executed monthly inventory audits with zero margin of error.",
+                "res-1-3": "Negotiated with suppliers for competitive pricing and optimal terms.",
+                "role-2": "Accountant",
+                "comp-2": "Nestlé Pure Life",
+                "res-2-1": "Assisted in high-volume inventory control and stock reconciliation.",
+                "res-2-2": "Supported fiscal closing operations and daily journal postings.",
+                "res-2-3": "Conducted production cost analysis to drive saving initiatives.",
+                "cta-title": "Ready to Elevate Your Financial Operations?",
+                "cta-desc": "I am available to bring immediate value to your organization through financial accounting and ERP leadership.",
+                "cta-wa": "WhatsApp",
+                "cta-mail": "Email",
+                "footer-text": "© 2026 Eslam Salama Alsayd Hussein. All rights reserved."
+            }
+        };
+
+        let currentLang = 'ar';
+
+        function updateContent() {
+            const elements = document.querySelectorAll('[data-i18n]');
+            elements.forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (translations[currentLang][key]) {
+                    el.textContent = translations[currentLang][key];
+                }
+            });
+
+            // Update page direction and button text
+            document.documentElement.dir = currentLang === 'ar' ? 'rtl' : 'ltr';
+            document.documentElement.lang = currentLang;
+            document.getElementById('langToggle').textContent = currentLang === 'ar' ? 'English' : 'العربية';
+        }
+
+        document.getElementById('langToggle').addEventListener('click', () => {
+            currentLang = currentLang === 'ar' ? 'en' : 'ar';
+            updateContent();
+        });
+
+        // Initial setup
+        updateContent();
+
         window.addEventListener('scroll', () => {
             const sections = document.querySelectorAll('section');
             const navLinks = document.querySelectorAll('.nav-links a');
