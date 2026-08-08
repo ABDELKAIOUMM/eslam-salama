@@ -50,7 +50,7 @@ html_code = """
 
         /* Container */
         .container {
-            max-width: 1300px;
+            max-width: 1400px;
             margin: 0 auto;
             padding: 0 24px;
         }
@@ -150,8 +150,8 @@ html_code = """
 
         /* Hero Section */
         .hero {
-            padding: 150px 0 100px;
-            min-height: 90vh;
+            padding: 120px 0 80px;
+            min-height: 100vh;
             display: flex;
             align-items: center;
             position: relative;
@@ -159,8 +159,8 @@ html_code = """
 
         .hero-grid {
             display: grid;
-            grid-template-columns: 0.9fr 1.1fr;
-            gap: 40px;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
             align-items: center;
         }
 
@@ -205,7 +205,7 @@ html_code = """
 
         .hero-title {
             font-family: 'Space Grotesk', sans-serif;
-            font-size: 3rem;
+            font-size: 2.8rem;
             font-weight: 800;
             line-height: 1.15;
             margin-bottom: 16px;
@@ -218,7 +218,7 @@ html_code = """
         }
 
         .hero-subtitle {
-            font-size: 1.2rem;
+            font-size: 1.15rem;
             color: var(--accent-emerald);
             font-weight: 600;
             margin-bottom: 20px;
@@ -232,7 +232,7 @@ html_code = """
             color: var(--text-muted);
             line-height: 1.8;
             margin-bottom: 36px;
-            max-width: 580px;
+            max-width: 560px;
         }
 
         .hero-actions {
@@ -306,24 +306,26 @@ html_code = """
             color: var(--text-main);
         }
 
-        /* ============================= */
-        /* Profile Image - LARGE Size    */
-        /* ============================= */
+        /* ================================== */
+        /* Profile Image - EXTRA LARGE Style  */
+        /* ================================== */
         .hero-image-wrapper {
             position: relative;
             display: flex;
             justify-content: center;
             align-items: center;
-            min-height: 750px;
+            width: 100%;
+            height: 100%;
+            min-height: 850px;
         }
 
         .profile-img-container {
             position: relative;
             width: 100%;
-            max-width: 750px;
+            max-width: 900px;
             display: flex;
             justify-content: center;
-            align-items: flex-end;
+            align-items: center;
         }
 
         .profile-img-container::before {
@@ -332,10 +334,10 @@ html_code = """
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            width: 85%;
-            height: 85%;
-            background: radial-gradient(circle, rgba(16, 185, 129, 0.2) 0%, transparent 70%);
-            filter: blur(80px);
+            width: 90%;
+            height: 90%;
+            background: radial-gradient(circle, rgba(16, 185, 129, 0.25) 0%, transparent 70%);
+            filter: blur(100px);
             z-index: 0;
             pointer-events: none;
         }
@@ -343,65 +345,18 @@ html_code = """
         .profile-img-container img {
             position: relative;
             width: 100%;
-            max-width: 720px;
+            max-width: 850px;
             height: auto;
+            min-height: 800px;
             object-fit: contain;
             z-index: 1;
-            filter: drop-shadow(0 25px 50px rgba(0, 0, 0, 0.7));
+            filter: drop-shadow(0 30px 60px rgba(0, 0, 0, 0.8));
             transition: var(--transition);
         }
 
         .profile-img-container:hover img {
-            transform: translateY(-8px);
-            filter: drop-shadow(0 35px 60px rgba(16, 185, 129, 0.35));
-        }
-
-        .floating-stat-card {
-            position: absolute;
-            bottom: 60px;
-            right: 0;
-            background: rgba(18, 22, 31, 0.95);
-            backdrop-filter: blur(12px);
-            border: 1px solid var(--card-border);
-            padding: 18px 26px;
-            border-radius: 18px;
-            display: flex;
-            align-items: center;
-            gap: 16px;
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.7);
-            animation: float 4s ease-in-out infinite;
-            z-index: 2;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
-        }
-
-        .stat-icon {
-            width: 50px;
-            height: 50px;
-            border-radius: 12px;
-            background: rgba(16, 185, 129, 0.15);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--accent-emerald);
-            font-size: 1.35rem;
-        }
-
-        .stat-info h4 {
-            font-size: 1.2rem;
-            font-weight: 700;
-            color: var(--text-main);
-            margin-bottom: 2px;
-        }
-
-        .stat-info p {
-            font-size: 0.78rem;
-            color: var(--text-muted);
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
+            transform: translateY(-10px) scale(1.02);
+            filter: drop-shadow(0 40px 70px rgba(16, 185, 129, 0.4));
         }
 
         /* Section Titles */
@@ -934,13 +889,14 @@ html_code = """
         /* Mobile Responsive */
         @media (max-width: 1200px) {
             .profile-img-container {
-                max-width: 600px;
+                max-width: 700px;
             }
             .profile-img-container img {
-                max-width: 580px;
+                max-width: 680px;
+                min-height: 700px;
             }
             .hero-image-wrapper {
-                min-height: 650px;
+                min-height: 720px;
             }
         }
 
@@ -964,13 +920,14 @@ html_code = """
                 grid-template-columns: repeat(2, 1fr);
             }
             .hero-image-wrapper {
-                min-height: 550px;
+                min-height: 600px;
             }
             .profile-img-container {
-                max-width: 500px;
+                max-width: 550px;
             }
             .profile-img-container img {
-                max-width: 480px;
+                max-width: 530px;
+                min-height: 550px;
             }
         }
 
@@ -991,29 +948,14 @@ html_code = """
                 padding: 40px 20px;
             }
             .profile-img-container {
-                max-width: 380px;
+                max-width: 400px;
             }
             .profile-img-container img {
-                max-width: 360px;
+                max-width: 380px;
+                min-height: 400px;
             }
             .hero-image-wrapper {
                 min-height: 450px;
-            }
-            .floating-stat-card {
-                bottom: 30px;
-                right: 10px;
-                padding: 12px 18px;
-            }
-            .stat-icon {
-                width: 40px;
-                height: 40px;
-                font-size: 1.1rem;
-            }
-            .stat-info h4 {
-                font-size: 1rem;
-            }
-            .stat-info p {
-                font-size: 0.7rem;
             }
         }
     </style>
@@ -1081,21 +1023,12 @@ html_code = """
                 </div>
             </div>
 
-            <!-- ============================= -->
-            <!-- Profile Image - LARGE Size   -->
-            <!-- ============================= -->
+            <!-- ================================== -->
+            <!-- Profile Image - EXTRA LARGE / No Card -->
+            <!-- ================================== -->
             <div class="hero-image-wrapper">
                 <div class="profile-img-container">
                     <img src="photo.png" alt="Eslam Salama - Senior Accountant">
-                    <div class="floating-stat-card">
-                        <div class="stat-icon">
-                            <i class="fa-solid fa-chart-line"></i>
-                        </div>
-                        <div class="stat-info">
-                            <h4>100% Accuracy</h4>
-                            <p>Auditing & Reconciliations</p>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
